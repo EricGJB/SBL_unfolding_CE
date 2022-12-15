@@ -23,7 +23,7 @@ Nt = 32 # number of antennas at the user
 Nr = 32 # number of antennas at the BS
 
 fc = 28*1e9 # central frequency
-W = 16*1e9 # bandwidth
+W = 4*1e9 # bandwidth
 num_sc = 8 # number of subcarriers
 Tau_max = 20*1e-9 # max delay
 
@@ -76,7 +76,7 @@ H_list = np.expand_dims(H_list, axis=-1)
 H_list = np.concatenate([np.real(H_list), np.imag(H_list)], axis=-1)
 # put the dimension num_sc after Nt and Nr, to facilitate computation later
 H_list = np.transpose(H_list, (0, 2, 3, 1, 4))
-io.savemat('./data/channel_large_squint.mat',{'H_list':H_list})
+io.savemat('./data/channel.mat',{'H_list':H_list})
 print(H_list.shape)  # (data_num,Nr,Nt,num_sc,2)
 
 
