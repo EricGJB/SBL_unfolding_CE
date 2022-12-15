@@ -229,8 +229,8 @@ batch_size = 8
 
 test_num = int(args.test_num)
 predictions_H = model.predict([H_list[-test_num:], noise_list[-test_num:], X_abs_previous_block[-test_num:]],batch_size=batch_size)
-predictions_H = predictions_H[:,:,:,:,0] + 1j*predictions_H[:,:,:,:,0]
-true_H = H_list[-test_num:,:,:,:,0] + 1j*H_list[-test_num:,:,:,:,0]
+predictions_H = predictions_H[:,:,:,:,0] + 1j*predictions_H[:,:,:,:,1]
+true_H = H_list[-test_num:,:,:,:,0] + 1j*H_list[-test_num:,:,:,:,1]
 
 error = 0
 error_nmse = 0
