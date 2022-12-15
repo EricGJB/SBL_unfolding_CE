@@ -232,8 +232,8 @@ print('Weight dict saved!')
 # test performance and save
 test_num = int(args.test_num)
 predictions_H = model.predict([W_list[-test_num:], F_list[-test_num:], y_list[-test_num:]])
-predictions_H = predictions_H[:,:,:,:,0] + 1j*predictions_H[:,:,:,:,0]
-true_H = H_list[-test_num:,:,:,:,0] + 1j*H_list[-test_num:,:,:,:,0]
+predictions_H = predictions_H[:,:,:,:,0] + 1j*predictions_H[:,:,:,:,1]
+true_H = H_list[-test_num:,:,:,:,0] + 1j*H_list[-test_num:,:,:,:,1]
 
 error = 0
 error_nmse = 0
